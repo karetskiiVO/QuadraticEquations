@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1660598188 source:c:\proj\quadraticequations\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdbool.h>
+
