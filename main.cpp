@@ -13,11 +13,17 @@ enum exitStatus{
     TWO_SOLUTIONS = 2
 };
 
+struct answEquation{
+    double solutions[2];
+    int numofSolutions;
+};
 
-void input(double* a, double* b, double* c);//input coefficients
-void output(double a, double b, double c);
+void inputEq(double* a, double* b, double* c, bool* usl);//input coefficients
+void outputEq(struct answEquation answ, bool* usl);
 bool isEqual(double a, double b);
-int solveEq(double a, double b, double c, double* x);//get solutions
+bool isNullptrDouble(double* ptr);
+bool isNullptrAnswSol(struct answEquation* ptr);
+void solveEq(double a, double b, double c, struct answEquation* answ, bool* usl);//get solutions
 double getDisc(double a, double b, double c);//get discriminant
 
 int main(void){
@@ -25,29 +31,37 @@ int main(void){
     double b = 0;
     double c = 0;
 
-    input(&a, &b, &c);
-    output(a, b, c);
+    bool isErrorsOnLine = false;
+
+    struct answEquation answ;
+
+    inputEq(&a, &b, &c, &isErrorsOnLine);
+    solveEq(a, b, c, &answ, &isErrorsOnLine);
+    outputEq(answ, &isErrorsOnLine);
     return 0;
 }
 
-void input(double* a, double* b, double* c){
+void inputEq(double* a, double* b, double* c, bool* usl){
+    if(isNullptrDouble(a) || isNullptrDouble(b) || isNullptrDouble(c)){
+        *usl = true;
+        return;
+    }
     printf("Enter the polynomial in the form ax^2 + bx + c = 0\n");
     scanf("%lg%lg%lg", a, b, c);
 }
 
-void output(double a, double b, double c){
-    double x[2];// x - array of solution
-    int answer = solveEq(a, b, c, x);
+void outputEq(struct answEquation answ, bool* usl){
+    int answer = answ.numofSolutions;
 
     if(answer == ERROR_IN_DEFINITION){
-        printf("error in definition");
+        printf("error in definition\n");
         return;
     }
     if(answer == INFINITE_NUMOF_SOLUTIONS){
-        printf("infinite number of solutions");
+        printf("infinite number of solutions\n");
         return;
     }
-    printf("Equation have %d solution", answer);
+    printf("equation have %d solution", answer);
 
     if(answer == NO_SOLUTIONS){
         printf(".");
@@ -56,7 +70,7 @@ void output(double a, double b, double c){
     }
 
     for(int i = 0; i < answer; i++){
-        printf("\t%lg", x[i]);
+        printf("\t%lg", answ.solutions[i]);
     }
 }
 
@@ -64,32 +78,57 @@ bool isEqual(double a, double b){
     return abs(a - b) < allowance;
 }
 
+bool isNullptrDouble(double* ptr){
+    return ptr == NULL;
+}
+
+bool isNullptrAnswSol(struct answEquation* ptr){
+    return ptr == NULL;
+}
+
 double getDisc(double a, double b, double c){
     return b * b - 4 * a * c;
 }
 
-int solveEq(double a, double b, double c, double* x){
+void solveEq(double a, double b, double c, struct answEquation* answ, bool* usl){
+    if(*usl){
+        (*answ).numofSolutions = ERROR_IN_DEFINITION;
+        printf("aboba");
+        return;
+    }
+
+    if(isNullptrAnswSol(answ)){
+        *usl = true;
+        return;
+    }
+
     double D = 0;//discriminant
     if(isEqual(a, 0)){
         if(isEqual(b, 0)){
             if(!isEqual(c, 0)){
-                return NO_SOLUTIONS;
+                (*answ).numofSolutions = NO_SOLUTIONS;
+                return;
             }
-            return INFINITE_NUMOF_SOLUTIONS;
+            (*answ).numofSolutions = INFINITE_NUMOF_SOLUTIONS;
+            return;
         }
-        x[0] = - c / b;
-        return ONE_SOLUTION;
+        (*answ).solutions[0] = - c / b;
+        (*answ).numofSolutions = ONE_SOLUTION;
+        return;
     }
     D = getDisc(a, b, c);
     if(isEqual(D, 0)){
-        x[0] = - b / (2 * a);
-        return ONE_SOLUTION;
+        (*answ).solutions[0] = - b / (2 * a);
+        (*answ).numofSolutions = ONE_SOLUTION;
+        return;
     }
     if(D < 0){
-        return NO_SOLUTIONS;
+        (*answ).numofSolutions = NO_SOLUTIONS;
+        return;
     }
 
-    x[0] = -(b + sqrt(D)) / (2 * a);
-    x[1] = -(b - sqrt(D)) / (2 * a);
-    return TWO_SOLUTIONS;
+    (*answ).solutions[0] = -(b + sqrt(D)) / (2 * a);
+    (*answ).solutions[1] = -(b - sqrt(D)) / (2 * a);
+    (*answ).numofSolutions = TWO_SOLUTIONS;
+    return;
 }
