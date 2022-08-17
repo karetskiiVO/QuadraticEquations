@@ -34,8 +34,6 @@ void output(double a, double b, double c){
     double x[2];// x - array of solution
     int answer = solveEq(a, b, c, x);
 
-    printf("%lg %lg %lg\n", a, b, c);
-
     if(answer == -2){
         printf("error in definition");
         return;
@@ -53,7 +51,7 @@ void output(double a, double b, double c){
     }
 
     for(int i = 0; i < answer; i++){
-        printf("\t%f", *(x + i));
+        printf("\t%lg", x[i]);
     }
 }
 
@@ -62,7 +60,7 @@ bool isEqual(double a, double b){
 }
 
 double getDisc(double a, double b, double c){
-    return pow(b, 2) - 4 * a * c;
+    return b * b - 4 * a * c;
 }
 
 int solveEq(double a, double b, double c, double* x){
@@ -74,19 +72,19 @@ int solveEq(double a, double b, double c, double* x){
             }
             return -1;
         }
-        *(x + 0) = - c / b;
+        x[0] = - c / b;
         return 1;
     }
     D = getDisc(a, b, c);
     if(isEqual(D, 0)){
-        *(x + 0) = - b / (2 * a);
+        x[0] = - b / (2 * a);
         return 1;
     }
     if(D < 0){
         return 0;
     }
-    for(int i = 0; i < 2; i++){
-        *(x + i) = -(b + pow(-1, i) * sqrt(D)) / (2 * a);
-    }
+
+    x[0] = -(b + sqrt(D)) / (2 * a);
+    x[1] = -(b - sqrt(D)) / (2 * a);
     return 2;
 }
