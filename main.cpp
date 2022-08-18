@@ -2,12 +2,12 @@
 
 #include "QuadricSolver.h"
 
-int main(void){
+int main (void) {
     double a = 0;
     double b = 0;
     double c = 0;
 
-    answEquation answ;
+    answEquation answ = {0};
 
     inputEq(&a, &b, &c);
     solveEq(a, b, c, &answ);

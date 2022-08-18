@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="QuadricSolver.cpp" />
+		<Unit filename="QuadricSolver.h" />
+		<Unit filename="QuadricTypes.h" />
+		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

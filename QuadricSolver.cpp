@@ -1,61 +1,56 @@
 #include "QuadricSolver.h"
 
-void inputEq(double* a, double* b, double* c){
+void inputEq (double* a, double* b, double* c) {
     printf("Enter the polynomial in the form ax^2 + bx + c = 0\n");
     scanf("%lg%lg%lg", a, b, c);
 }
 
-void outputEq(answEquation* answ){
-    assert(answ != NULL);
+void outputEq (answEquation* answ) {
+    assert(answ != NULL && "All pointers mustn't be NULL");
 
     int answer = answ->numofSolutions;
 
-    if(answer == ERROR_IN_DEFINITION){
+    if (answer == ERROR_IN_DEFINITION) {
         printf("error in definition\n");
         return;
     }
 
-    if(answer == INFINITE_NUMOF_SOLUTIONS){
+    if (answer == INFINITE_NUMOF_SOLUTIONS) {
         printf("infinite number of solutions\n");
         return;
     }
 
     printf("equation have %d solution", answer);
 
-    if(answer == NO_SOLUTIONS){
+    if (answer == NO_SOLUTIONS) {
         printf(".");
-    }else{
+    } else {
         printf(":");
     }
 
-    for(int i = 0; i < answer; i++){
+    for (int i = 0; i < answer; i++) {
         printf("\t%lg", answ->solutions[i]);
     }
 }
 
-bool isEqual(double a, double b){
-    assert(isfinite(a));
-    assert(isfinite(b));
+bool isEqual(double a, double b) {
+    assert(isnan(a)  && isnan(b) && "All coficient mustn't be NaN");
 
     return abs(a - b) < allowance;
 }
 
-double getDisc(double a, double b, double c){
-    assert(isfinite(a));
-    assert(isfinite(b));
-    assert(isfinite(c));
+double getDisc (double a, double b, double c) {
+    assert(isnan(a)  && isnan(b) && isnan(c) && "All coficient mustn't be NaN");
 
     return b * b - 4 * a * c;
 }
 
-void solveEq(double a, double b, double c, answEquation* answ){
-    assert(isfinite(a));
-    assert(isfinite(b));
-    assert(isfinite(c));
+void solveEq (double a, double b, double c, answEquation* answ) {
+    assert(isnan(a)  && isnan(b) && isnan(c) && "All coficient mustn't be NaN");
 
-    assert(answ != NULL);
+    assert(answ != NULL && "All pointers mustn't be NULL");
 
-    if(isEqual(a, 0)){
+    if (isEqual(a, 0)) {
         solveEqLin(b, c, answ);
         return;
     }
@@ -63,14 +58,13 @@ void solveEq(double a, double b, double c, answEquation* answ){
     solveEqQuad(a, b, c, answ);
 }
 
-void solveEqLin(double b, double c, answEquation* answ){
-    assert(isfinite(b));
-    assert(isfinite(c));
+void solveEqLin (double b, double c, answEquation* answ) {
+    assert(isnan(b) && isnan(c) && "All coficient mustn't be NaN");
 
-    assert(answ != NULL);
+    assert(answ != NULL && "All pointers mustn't be NULL");
 
-    if(isEqual(b, 0)){
-        if(!isEqual(c, 0)){
+    if (isEqual(b, 0)) {
+        if (!isEqual(c, 0)) {
             answ->numofSolutions = NO_SOLUTIONS;
             return;
         }
@@ -83,7 +77,7 @@ void solveEqLin(double b, double c, answEquation* answ){
     answ->numofSolutions = ONE_SOLUTION;
 }
 
-void solveEqQuad(double a, double b, double c, answEquation* answ){
+void solveEqQuad (double a, double b, double c, answEquation* answ) {
     assert(isfinite(a));
     assert(isfinite(b));
     assert(isfinite(b));
@@ -93,13 +87,13 @@ void solveEqQuad(double a, double b, double c, answEquation* answ){
     double D = 0;//discriminant
     D = getDisc(a, b, c);
 
-    if(isEqual(D, 0)){
+    if (isEqual(D, 0)) {
         answ->solutions[0] = - b / (2 * a);
         answ->numofSolutions = ONE_SOLUTION;
         return;
     }
 
-    if(D < 0){
+    if (D < 0) {
         answ->numofSolutions = NO_SOLUTIONS;
         return;
     }
