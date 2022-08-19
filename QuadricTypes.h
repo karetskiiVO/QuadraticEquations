@@ -1,6 +1,7 @@
-#pragma once
+#ifndef QUADRICTYPES_H
+#define QUADRICTYPES_H
 
-const double allowance = 1e-9; //delta neighborhood size
+const double ALLOWANCE = 1e-9; //delta neighborhood size
 
 typedef struct {
     double solutions[2];
@@ -14,3 +15,5 @@ enum exitStatus {
     ONE_SOLUTION = 1,
     TWO_SOLUTIONS = 2
 };
+
+#endif

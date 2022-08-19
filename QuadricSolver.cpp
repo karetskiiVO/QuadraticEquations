@@ -2,7 +2,7 @@
 
 void inputEq (double* a, double* b, double* c) {
     printf("Enter the polynomial in the form ax^2 + bx + c = 0\n");
-    scanf("%lg%lg%lg", a, b, c);
+    scanf("%lf%lf%lf", a, b, c);
 }
 
 void outputEq (answEquation* answ) {
@@ -10,43 +10,38 @@ void outputEq (answEquation* answ) {
 
     int answer = answ->numofSolutions;
 
-    if (answer == ERROR_IN_DEFINITION) {
-        printf("error in definition\n");
-        return;
-    }
-
-    if (answer == INFINITE_NUMOF_SOLUTIONS) {
-        printf("infinite number of solutions\n");
-        return;
-    }
-
-    printf("equation have %d solution", answer);
-
-    if (answer == NO_SOLUTIONS) {
-        printf(".");
-    } else {
-        printf(":");
-    }
-
-    for (int i = 0; i < answer; i++) {
-        printf("\t%lg", answ->solutions[i]);
+    switch (answer) {
+        case ERROR_IN_DEFINITION:
+             printf("error in definition\n");
+             break;
+        case INFINITE_NUMOF_SOLUTIONS:
+            printf("infinite number of solutions\n");
+            break;
+        case NO_SOLUTIONS:
+            printf("equation have %d solution.", answer);
+            break;
+        default:
+            printf("equation have %d solution:", answer);
+            for (int i = 0; i < answer; i++) {
+                printf("\t%lg", answ->solutions[i]);
+            }
     }
 }
 
 bool isEqual(double a, double b) {
-    assert(isnan(a)  && isnan(b) && "All coficient mustn't be NaN");
+    assert(!isnan(a)  && !isnan(b) && "All coficient mustn't be NaN");
 
-    return abs(a - b) < allowance;
+    return fabs(a - b) < ALLOWANCE;
 }
 
 double getDisc (double a, double b, double c) {
-    assert(isnan(a)  && isnan(b) && isnan(c) && "All coficient mustn't be NaN");
+    assert(!isnan(a)  && !isnan(b) && !isnan(c) && "All coficient mustn't be NaN");
 
     return b * b - 4 * a * c;
 }
 
 void solveEq (double a, double b, double c, answEquation* answ) {
-    assert(isnan(a)  && isnan(b) && isnan(c) && "All coficient mustn't be NaN");
+    assert(!isnan(a)  && !isnan(b) && !isnan(c) && "All coficient mustn't be NaN");
 
     assert(answ != NULL && "All pointers mustn't be NULL");
 
@@ -59,7 +54,7 @@ void solveEq (double a, double b, double c, answEquation* answ) {
 }
 
 void solveEqLin (double b, double c, answEquation* answ) {
-    assert(isnan(b) && isnan(c) && "All coficient mustn't be NaN");
+    assert(!isnan(b) && !isnan(c) && "All coficient mustn't be NaN");
 
     assert(answ != NULL && "All pointers mustn't be NULL");
 
@@ -78,11 +73,9 @@ void solveEqLin (double b, double c, answEquation* answ) {
 }
 
 void solveEqQuad (double a, double b, double c, answEquation* answ) {
-    assert(isfinite(a));
-    assert(isfinite(b));
-    assert(isfinite(b));
+    assert(!isnan(a) && !isnan(b) && !isnan(c) && "All coficient mustn't be NaN");
 
-    assert(answ != NULL);
+    assert(answ != NULL && "All pointers mustn't be NULL");
 
     double D = 0;//discriminant
     D = getDisc(a, b, c);

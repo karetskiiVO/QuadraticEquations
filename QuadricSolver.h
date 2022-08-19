@@ -1,4 +1,5 @@
-#pragma once
+#ifndef QUADRICSOLVER_H
+#define QUADRICSOLVER_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,3 +22,5 @@ double getDisc (double a, double b, double c);//get discriminant
 void solveEqLin (double b, double c, answEquation* answ);//solve linear
 
 void solveEqQuad (double a, double b, double c, answEquation* answ);//solve quadric
+
+#endif
