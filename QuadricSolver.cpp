@@ -1,6 +1,11 @@
 #include "QuadricSolver.h"
 
+#include <math.h>
+#include <assert.h>
+
 void inputEq (double* a, double* b, double* c) {
+    assert(a != NULL && b != NULL && c !=NULL && "All pointers mustn't be NULL");
+
     printf("Enter the polynomial in the form ax^2 + bx + c = 0\n");
     scanf("%lf%lf%lf", a, b, c);
 }
@@ -29,19 +34,19 @@ void outputEq (answEquation* answ) {
 }
 
 bool isEqual(double a, double b) {
-    assert(!isnan(a)  && !isnan(b) && "All coficient mustn't be NaN");
+    assert(isfinite(a)  && isfinite(b) && "All coficient mustn't be NaN");
 
     return fabs(a - b) < ALLOWANCE;
 }
 
 double getDisc (double a, double b, double c) {
-    assert(!isnan(a)  && !isnan(b) && !isnan(c) && "All coficient mustn't be NaN");
+    assert(isfinite(a)  && isfinite(b) && isfinite(c) && "All coficient mustn't be NaN");
 
     return b * b - 4 * a * c;
 }
 
 void solveEq (double a, double b, double c, answEquation* answ) {
-    assert(!isnan(a)  && !isnan(b) && !isnan(c) && "All coficient mustn't be NaN");
+    assert(isfinite(a)  && isfinite(b) && isfinite(c) && "All coficient mustn't be NaN");
 
     assert(answ != NULL && "All pointers mustn't be NULL");
 
@@ -54,7 +59,7 @@ void solveEq (double a, double b, double c, answEquation* answ) {
 }
 
 void solveEqLin (double b, double c, answEquation* answ) {
-    assert(!isnan(b) && !isnan(c) && "All coficient mustn't be NaN");
+    assert(isfinite(b) && isfinite(c) && "All coficient mustn't be NaN");
 
     assert(answ != NULL && "All pointers mustn't be NULL");
 
@@ -73,15 +78,17 @@ void solveEqLin (double b, double c, answEquation* answ) {
 }
 
 void solveEqQuad (double a, double b, double c, answEquation* answ) {
-    assert(!isnan(a) && !isnan(b) && !isnan(c) && "All coficient mustn't be NaN");
+    assert(isfinite(a) && isfinite(b) && isfinite(c) && "All coficient mustn't be NaN");
 
     assert(answ != NULL && "All pointers mustn't be NULL");
 
     double D = 0;//discriminant
     D = getDisc(a, b, c);
 
+    a *= 2;
+
     if (isEqual(D, 0)) {
-        answ->solutions[0] = - b / (2 * a);
+        answ->solutions[0] = - b / a;
         answ->numofSolutions = ONE_SOLUTION;
         return;
     }
@@ -91,7 +98,9 @@ void solveEqQuad (double a, double b, double c, answEquation* answ) {
         return;
     }
 
-    answ->solutions[0] = -(b + sqrt(D)) / (2 * a);
-    answ->solutions[1] = -(b - sqrt(D)) / (2 * a);
+    D = sqrt(D);
+
+    answ->solutions[0] = -(b + D) / a;
+    answ->solutions[1] = -(b - D) / a;
     answ->numofSolutions = TWO_SOLUTIONS;
 }
