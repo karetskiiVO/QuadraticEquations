@@ -99,7 +99,6 @@ void solveEqQuad (double a, double b, double c, answEquation* answ) {
         answ->numofSolutions = NO_SOLUTIONS;
         return;
     }
-}
 
 
 
@@ -109,3 +108,4 @@ void solveEqQuad (double a, double b, double c, answEquation* answ) {
     answ->solutions[1] = -(b - D) / a;
     answ->numofSolutions = TWO_SOLUTIONS;
 }
+

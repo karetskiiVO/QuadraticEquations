@@ -22,18 +22,6 @@ void \mbox{\hyperlink{_quadric_solver_8cpp_a0198cf4a2f54f2359907f893f6b43f0c}{so
 \begin{DoxyCompactList}\small\item\em this function solves the linear equation \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_quadric_solver_8cpp_ab4b7676e1acbdf67e230c0314fdb2fbd}{solve\+Eq\+Quad}} (double a, double b, double c, \mbox{\hyperlink{structansw_equation}{answ\+Equation}} $\ast$answ)
 \begin{DoxyCompactList}\small\item\em this function solves the quadric equation \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{_quadric_solver_8cpp_a350bfcb1e3cfb28ddff48ce525d4f139}\label{_quadric_solver_8cpp_a350bfcb1e3cfb28ddff48ce525d4f139}} 
-{\bfseries D} = sqrt(D)
-\item 
-\mbox{\Hypertarget{_quadric_solver_8cpp_ae330ae3988bbbdb36b890e0e95e5fc3b}\label{_quadric_solver_8cpp_ae330ae3988bbbdb36b890e0e95e5fc3b}} 
-answ {\bfseries solutions} \mbox{[}0\mbox{]} = -\/(b + D) / a
-\item 
-\mbox{\Hypertarget{_quadric_solver_8cpp_ab50b1361cc984b610cc2a1b526940f06}\label{_quadric_solver_8cpp_ab50b1361cc984b610cc2a1b526940f06}} 
-answ {\bfseries numof\+Solutions} = TWO\+\_\+\+SOLUTIONS
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}

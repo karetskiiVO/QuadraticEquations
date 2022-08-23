@@ -1,3 +1,5 @@
+/// \file
+
 #include "QuadricSolver.h"
 
 #include <math.h>
@@ -9,18 +11,6 @@ void inputEq (double* a, double* b, double* c) {
     printf("Enter the polynomial in the form ax^2 + bx + c = 0\n");
     scanf("%lf%lf%lf", a, b, c);
 }
-
-/*
-*   @
-*
-*
-*
-*
-*
-*
-*
-*/
-
 
 void outputEq (answEquation* answ) {
     assert(answ != NULL && "All pointers mustn't be NULL");
@@ -109,6 +99,7 @@ void solveEqQuad (double a, double b, double c, answEquation* answ) {
         answ->numofSolutions = NO_SOLUTIONS;
         return;
     }
+}
 
     D = sqrt(D);
 
