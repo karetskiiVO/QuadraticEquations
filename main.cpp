@@ -2,7 +2,7 @@
 
 /// \file
 
-#define DebugMode
+//#define DebugMode
 
 #ifdef DebugMode
     #include "QuadricTest.h"

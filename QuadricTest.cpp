@@ -48,7 +48,6 @@ void testEq (void) {
         fscanf(testFile, "%d", &answTest.numofSolutions);
 
         solveEq(a, b, c, &answ);
-        answ.numofSolutions = (answ.numofSolutions < 0) ? 0 : answ.numofSolutions;
 
         for (int i = 0; i < answTest.numofSolutions; i++){
             fscanf(testFile, "%lf", &answTest.solutions[i]);
