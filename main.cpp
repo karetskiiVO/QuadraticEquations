@@ -1,5 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
+/// \file
+
 #include "QuadricSolver.h"
 
 int main (void) {

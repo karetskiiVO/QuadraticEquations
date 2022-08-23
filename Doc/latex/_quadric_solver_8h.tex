@@ -1,0 +1,167 @@
+\hypertarget{_quadric_solver_8h}{}\doxysection{Quadric\+Solver.\+h File Reference}
+\label{_quadric_solver_8h}\index{QuadricSolver.h@{QuadricSolver.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Quadric\+Types.\+h\char`\"{}}\newline
+Include dependency graph for Quadric\+Solver.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_quadric_solver_8h_aeb54836d19660746b9ed0498ab7f4bd7}{input\+Eq}} (double $\ast$a, double $\ast$b, double $\ast$c)
+\begin{DoxyCompactList}\small\item\em this function performs the input \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_quadric_solver_8h_a2acc0231ebda62aa5038199979503c26}{output\+Eq}} (\mbox{\hyperlink{structansw_equation}{answ\+Equation}} $\ast$answ)
+\begin{DoxyCompactList}\small\item\em this function output results \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_quadric_solver_8h_a3adad7bbdda8a2732361e91c51f34b86}{is\+Equal}} (double a, double b)
+\begin{DoxyCompactList}\small\item\em this function checks for equality pair of double \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_quadric_solver_8h_a8fa563c3fb6933d93fc788d4289a98e8}{solve\+Eq}} (double a, double b, double c, \mbox{\hyperlink{structansw_equation}{answ\+Equation}} $\ast$answ)
+\begin{DoxyCompactList}\small\item\em this function solves the equation \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{_quadric_solver_8h_aba019842627345dd6e0a7b6b2c99c791}{get\+Disc}} (double a, double b, double c)
+\begin{DoxyCompactList}\small\item\em this function get discriminant of the equation \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_quadric_solver_8h_a0198cf4a2f54f2359907f893f6b43f0c}{solve\+Eq\+Lin}} (double b, double c, \mbox{\hyperlink{structansw_equation}{answ\+Equation}} $\ast$answ)
+\begin{DoxyCompactList}\small\item\em this function solves the linear equation \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_quadric_solver_8h_ab4b7676e1acbdf67e230c0314fdb2fbd}{solve\+Eq\+Quad}} (double a, double b, double c, \mbox{\hyperlink{structansw_equation}{answ\+Equation}} $\ast$answ)
+\begin{DoxyCompactList}\small\item\em this function solves the quadric equation \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_quadric_solver_8h_aba019842627345dd6e0a7b6b2c99c791}\label{_quadric_solver_8h_aba019842627345dd6e0a7b6b2c99c791}} 
+\index{QuadricSolver.h@{QuadricSolver.h}!getDisc@{getDisc}}
+\index{getDisc@{getDisc}!QuadricSolver.h@{QuadricSolver.h}}
+\doxysubsubsection{\texorpdfstring{getDisc()}{getDisc()}}
+{\footnotesize\ttfamily double get\+Disc (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b,  }\item[{double}]{c }\end{DoxyParamCaption})}
+
+
+
+this function get discriminant of the equation 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & -\/ the 1st coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & -\/ the 2nd coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & -\/ the 3rd coefficient of equation\\
+\hline
+\mbox{\texttt{ out}}  & {\em double} & -\/ discriminant of the equation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_quadric_solver_8h_aeb54836d19660746b9ed0498ab7f4bd7}\label{_quadric_solver_8h_aeb54836d19660746b9ed0498ab7f4bd7}} 
+\index{QuadricSolver.h@{QuadricSolver.h}!inputEq@{inputEq}}
+\index{inputEq@{inputEq}!QuadricSolver.h@{QuadricSolver.h}}
+\doxysubsubsection{\texorpdfstring{inputEq()}{inputEq()}}
+{\footnotesize\ttfamily void input\+Eq (\begin{DoxyParamCaption}\item[{double $\ast$}]{a,  }\item[{double $\ast$}]{b,  }\item[{double $\ast$}]{c }\end{DoxyParamCaption})}
+
+
+
+this function performs the input 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em a} & -\/ pointer to the 1st coefficient of equation \\
+\hline
+\mbox{\texttt{ out}}  & {\em b} & -\/ pointer to the 2nd coefficient of equation \\
+\hline
+\mbox{\texttt{ out}}  & {\em c} & -\/ pointer to the 3rd coefficient of equation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_quadric_solver_8h_a3adad7bbdda8a2732361e91c51f34b86}\label{_quadric_solver_8h_a3adad7bbdda8a2732361e91c51f34b86}} 
+\index{QuadricSolver.h@{QuadricSolver.h}!isEqual@{isEqual}}
+\index{isEqual@{isEqual}!QuadricSolver.h@{QuadricSolver.h}}
+\doxysubsubsection{\texorpdfstring{isEqual()}{isEqual()}}
+{\footnotesize\ttfamily bool is\+Equal (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b }\end{DoxyParamCaption})}
+
+
+
+this function checks for equality pair of double 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & -\/ 1st double \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & -\/ 2nd double\\
+\hline
+\mbox{\texttt{ out}}  & {\em true} & -\/ the numbers are equal \\
+\hline
+\mbox{\texttt{ out}}  & {\em false} & -\/ the numbers aren\textquotesingle{}t equal \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_quadric_solver_8h_a2acc0231ebda62aa5038199979503c26}\label{_quadric_solver_8h_a2acc0231ebda62aa5038199979503c26}} 
+\index{QuadricSolver.h@{QuadricSolver.h}!outputEq@{outputEq}}
+\index{outputEq@{outputEq}!QuadricSolver.h@{QuadricSolver.h}}
+\doxysubsubsection{\texorpdfstring{outputEq()}{outputEq()}}
+{\footnotesize\ttfamily void output\+Eq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structansw_equation}{answ\+Equation}} $\ast$}]{answ }\end{DoxyParamCaption})}
+
+
+
+this function output results 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em answ} & -\/ pointer to the struct with solution \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_quadric_solver_8h_a8fa563c3fb6933d93fc788d4289a98e8}\label{_quadric_solver_8h_a8fa563c3fb6933d93fc788d4289a98e8}} 
+\index{QuadricSolver.h@{QuadricSolver.h}!solveEq@{solveEq}}
+\index{solveEq@{solveEq}!QuadricSolver.h@{QuadricSolver.h}}
+\doxysubsubsection{\texorpdfstring{solveEq()}{solveEq()}}
+{\footnotesize\ttfamily void solve\+Eq (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b,  }\item[{double}]{c,  }\item[{\mbox{\hyperlink{structansw_equation}{answ\+Equation}} $\ast$}]{answ }\end{DoxyParamCaption})}
+
+
+
+this function solves the equation 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & -\/ the 1st coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & -\/ the 2nd coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & -\/ the 3rd coefficient of equation\\
+\hline
+\mbox{\texttt{ out}}  & {\em answ} & -\/ pointer to solution struct \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_quadric_solver_8h_a0198cf4a2f54f2359907f893f6b43f0c}\label{_quadric_solver_8h_a0198cf4a2f54f2359907f893f6b43f0c}} 
+\index{QuadricSolver.h@{QuadricSolver.h}!solveEqLin@{solveEqLin}}
+\index{solveEqLin@{solveEqLin}!QuadricSolver.h@{QuadricSolver.h}}
+\doxysubsubsection{\texorpdfstring{solveEqLin()}{solveEqLin()}}
+{\footnotesize\ttfamily void solve\+Eq\+Lin (\begin{DoxyParamCaption}\item[{double}]{b,  }\item[{double}]{c,  }\item[{\mbox{\hyperlink{structansw_equation}{answ\+Equation}} $\ast$}]{answ }\end{DoxyParamCaption})}
+
+
+
+this function solves the linear equation 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b} & -\/ the 1st coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & -\/ the 2nd coefficient of equation\\
+\hline
+\mbox{\texttt{ out}}  & {\em answ} & -\/ pointer to solution struct \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_quadric_solver_8h_ab4b7676e1acbdf67e230c0314fdb2fbd}\label{_quadric_solver_8h_ab4b7676e1acbdf67e230c0314fdb2fbd}} 
+\index{QuadricSolver.h@{QuadricSolver.h}!solveEqQuad@{solveEqQuad}}
+\index{solveEqQuad@{solveEqQuad}!QuadricSolver.h@{QuadricSolver.h}}
+\doxysubsubsection{\texorpdfstring{solveEqQuad()}{solveEqQuad()}}
+{\footnotesize\ttfamily void solve\+Eq\+Quad (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b,  }\item[{double}]{c,  }\item[{\mbox{\hyperlink{structansw_equation}{answ\+Equation}} $\ast$}]{answ }\end{DoxyParamCaption})}
+
+
+
+this function solves the quadric equation 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & -\/ the 1st coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & -\/ the 2nd coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & -\/ the 3rd coefficient of equation\\
+\hline
+\mbox{\texttt{ out}}  & {\em answ} & -\/ pointer to solution struct \\
+\hline
+\end{DoxyParams}
