@@ -6,7 +6,7 @@
 #include <assert.h>
 
 void inputEq (double* a, double* b, double* c) {
-    assert(a != NULL && b != NULL && c !=NULL && "All pointers mustn't be NULL");
+    assert(a != NULL && b != NULL && c != NULL && "All pointers mustn't be NULL");
 
     printf("Enter the polynomial in the form ax^2 + bx + c = 0\n");
     scanf("%lf%lf%lf", a, b, c);
@@ -84,28 +84,28 @@ void solveEqQuad (double a, double b, double c, answEquation* answ) {
 
     assert(answ != NULL && "All pointers mustn't be NULL");
 
-    double D = 0;//discriminant
-    D = getDisc(a, b, c);
+    double Disc = 0;//discriminant
+    Disc = getDisc(a, b, c);
 
     a *= 2;
 
-    if (isEqual(D, 0)) {
+    if (isEqual(Disc, 0)) {
         answ->solutions[0] = - b / a;
         answ->numofSolutions = ONE_SOLUTION;
         return;
     }
 
-    if (D < 0) {
+    if (Disc < 0) {
         answ->numofSolutions = NO_SOLUTIONS;
         return;
     }
 
 
 
-    D = sqrt(D);
+    Disc = sqrt(Disc);
 
-    answ->solutions[0] = -(b + D) / a;
-    answ->solutions[1] = -(b - D) / a;
+    answ->solutions[0] = -(b + Disc) / a;
+    answ->solutions[1] = -(b - Disc) / a;
     answ->numofSolutions = TWO_SOLUTIONS;
 }
 

@@ -20,4 +20,4 @@ enum exitStatus {
     TWO_SOLUTIONS = 2
 };
 
-#endif
+#endif  // QuadraicTypes.h

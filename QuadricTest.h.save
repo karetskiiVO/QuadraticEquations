@@ -1,0 +1,3 @@
+void testEq(void);
+
+void testInput(int)

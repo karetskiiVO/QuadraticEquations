@@ -2,17 +2,27 @@
 
 /// \file
 
+#define DebugMode
+
+#ifdef DebugMode
+    #include "QuadricTest.h"
+#endif
+
 #include "QuadricSolver.h"
+#include <math.h>
 
 int main (void) {
-    double a = 0;
-    double b = 0;
-    double c = 0;
+    double a = NAN;
+    double b = NAN;
+    double c = NAN;
 
     answEquation answ = {0};
-
-    inputEq(&a, &b, &c);
-    solveEq(a, b, c, &answ);
-    outputEq(&answ);
+    #ifdef DebugMode
+        testEq();
+    #else
+        inputEq(&a, &b, &c);
+        solveEq(a, b, c, &answ);
+        outputEq(&answ);
+    #endif
     return 0;
 }

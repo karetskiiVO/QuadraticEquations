@@ -46,9 +46,13 @@ this function get discriminant of the equation
 \hline
 \mbox{\texttt{ in}}  & {\em c} & -\/ the 3rd coefficient of equation\\
 \hline
-\mbox{\texttt{ out}}  & {\em double} & -\/ discriminant of the equation \\
-\hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ discriminant of the equation
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+equation has form ax$^\wedge$2 + bx + c = 0, where a -\/ 1st coefficient of equation, b -\/ 2nd coefficient of equation, c -\/ 3rd coefficient of equation 
+\end{DoxyNote}
 \mbox{\Hypertarget{_quadric_solver_8h_aeb54836d19660746b9ed0498ab7f4bd7}\label{_quadric_solver_8h_aeb54836d19660746b9ed0498ab7f4bd7}} 
 \index{QuadricSolver.h@{QuadricSolver.h}!inputEq@{inputEq}}
 \index{inputEq@{inputEq}!QuadricSolver.h@{QuadricSolver.h}}
@@ -65,9 +69,12 @@ this function performs the input
 \hline
 \mbox{\texttt{ out}}  & {\em b} & -\/ pointer to the 2nd coefficient of equation \\
 \hline
-\mbox{\texttt{ out}}  & {\em c} & -\/ pointer to the 3rd coefficient of equation \\
+\mbox{\texttt{ out}}  & {\em c} & -\/ pointer to the 3rd coefficient of equation\\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+equation has form ax$^\wedge$2 + bx + c = 0, where a -\/ 1st coefficient of equation, b -\/ 2nd coefficient of equation, c -\/ 3rd coefficient of equation 
+\end{DoxyNote}
 \mbox{\Hypertarget{_quadric_solver_8h_a3adad7bbdda8a2732361e91c51f34b86}\label{_quadric_solver_8h_a3adad7bbdda8a2732361e91c51f34b86}} 
 \index{QuadricSolver.h@{QuadricSolver.h}!isEqual@{isEqual}}
 \index{isEqual@{isEqual}!QuadricSolver.h@{QuadricSolver.h}}
@@ -84,11 +91,15 @@ this function checks for equality pair of double
 \hline
 \mbox{\texttt{ in}}  & {\em b} & -\/ 2nd double\\
 \hline
-\mbox{\texttt{ out}}  & {\em true} & -\/ the numbers are equal \\
-\hline
-\mbox{\texttt{ out}}  & {\em false} & -\/ the numbers aren\textquotesingle{}t equal \\
-\hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true -\/ the numbers are equal 
+
+false -\/ the numbers aren\textquotesingle{}t equal
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+equation has form ax$^\wedge$2 + bx + c = 0, where a -\/ 1st coefficient of equation, b -\/ 2nd coefficient of equation, c -\/ 3rd coefficient of equation 
+\end{DoxyNote}
 \mbox{\Hypertarget{_quadric_solver_8h_a2acc0231ebda62aa5038199979503c26}\label{_quadric_solver_8h_a2acc0231ebda62aa5038199979503c26}} 
 \index{QuadricSolver.h@{QuadricSolver.h}!outputEq@{outputEq}}
 \index{outputEq@{outputEq}!QuadricSolver.h@{QuadricSolver.h}}
@@ -101,9 +112,12 @@ this function output results
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em answ} & -\/ pointer to the struct with solution \\
+\mbox{\texttt{ in}}  & {\em answ} & -\/ pointer to the struct with solution\\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+equation has form ax$^\wedge$2 + bx + c = 0, where a -\/ 1st coefficient of equation, b -\/ 2nd coefficient of equation, c -\/ 3rd coefficient of equation 
+\end{DoxyNote}
 \mbox{\Hypertarget{_quadric_solver_8h_a8fa563c3fb6933d93fc788d4289a98e8}\label{_quadric_solver_8h_a8fa563c3fb6933d93fc788d4289a98e8}} 
 \index{QuadricSolver.h@{QuadricSolver.h}!solveEq@{solveEq}}
 \index{solveEq@{solveEq}!QuadricSolver.h@{QuadricSolver.h}}
@@ -122,9 +136,12 @@ this function solves the equation
 \hline
 \mbox{\texttt{ in}}  & {\em c} & -\/ the 3rd coefficient of equation\\
 \hline
-\mbox{\texttt{ out}}  & {\em answ} & -\/ pointer to solution struct \\
+\mbox{\texttt{ out}}  & {\em answ} & -\/ pointer to solution struct\\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+equation has form ax$^\wedge$2 + bx + c = 0, where a -\/ 1st coefficient of equation, b -\/ 2nd coefficient of equation, c -\/ 3rd coefficient of equation 
+\end{DoxyNote}
 \mbox{\Hypertarget{_quadric_solver_8h_a0198cf4a2f54f2359907f893f6b43f0c}\label{_quadric_solver_8h_a0198cf4a2f54f2359907f893f6b43f0c}} 
 \index{QuadricSolver.h@{QuadricSolver.h}!solveEqLin@{solveEqLin}}
 \index{solveEqLin@{solveEqLin}!QuadricSolver.h@{QuadricSolver.h}}
@@ -141,9 +158,12 @@ this function solves the linear equation
 \hline
 \mbox{\texttt{ in}}  & {\em c} & -\/ the 2nd coefficient of equation\\
 \hline
-\mbox{\texttt{ out}}  & {\em answ} & -\/ pointer to solution struct \\
+\mbox{\texttt{ out}}  & {\em answ} & -\/ pointer to solution struct\\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+equation has form ax$^\wedge$2 + bx + c = 0, where a -\/ 1st coefficient of equation, b -\/ 2nd coefficient of equation, c -\/ 3rd coefficient of equation 
+\end{DoxyNote}
 \mbox{\Hypertarget{_quadric_solver_8h_ab4b7676e1acbdf67e230c0314fdb2fbd}\label{_quadric_solver_8h_ab4b7676e1acbdf67e230c0314fdb2fbd}} 
 \index{QuadricSolver.h@{QuadricSolver.h}!solveEqQuad@{solveEqQuad}}
 \index{solveEqQuad@{solveEqQuad}!QuadricSolver.h@{QuadricSolver.h}}
@@ -162,6 +182,9 @@ this function solves the quadric equation
 \hline
 \mbox{\texttt{ in}}  & {\em c} & -\/ the 3rd coefficient of equation\\
 \hline
-\mbox{\texttt{ out}}  & {\em answ} & -\/ pointer to solution struct \\
+\mbox{\texttt{ out}}  & {\em answ} & -\/ pointer to solution struct\\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+equation has form ax$^\wedge$2 + bx + c = 0, where a -\/ 1st coefficient of equation, b -\/ 2nd coefficient of equation, c -\/ 3rd coefficient of equation 
+\end{DoxyNote}

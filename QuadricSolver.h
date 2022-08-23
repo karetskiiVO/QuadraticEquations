@@ -15,6 +15,8 @@
 *   @param [out] a - pointer to the 1st coefficient of equation
 *   @param [out] b - pointer to the 2nd coefficient of equation
 *   @param [out] c - pointer to the 3rd coefficient of equation
+*
+*   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
 void inputEq (double* a, double* b, double* c);
 
@@ -22,6 +24,8 @@ void inputEq (double* a, double* b, double* c);
 *   @brief this function output results
 *
 *   @param [in] answ - pointer to the struct with solution
+*
+*   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
 void outputEq (answEquation* answ);
 
@@ -31,8 +35,10 @@ void outputEq (answEquation* answ);
 *   @param [in] a - 1st double
 *   @param [in] b - 2nd double
 *
-*   @param [out] true - the numbers are equal
-*   @param [out] false - the numbers aren't equal
+*   @return true - the numbers are equal
+*   @returns false - the numbers aren't equal
+*
+*   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
 bool isEqual (double a, double b);
 
@@ -44,6 +50,8 @@ bool isEqual (double a, double b);
 *   @param [in] c - the 3rd coefficient of equation
 *
 *   @param [out] answ - pointer to solution struct
+*
+*   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
 void solveEq (double a, double b, double c, answEquation* answ);//get solutions
 
@@ -54,7 +62,9 @@ void solveEq (double a, double b, double c, answEquation* answ);//get solutions
 *   @param [in] b - the 2nd coefficient of equation
 *   @param [in] c - the 3rd coefficient of equation
 *
-*   @param [out] double - discriminant of the equation
+*   @return - discriminant of the equation
+*
+*   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
 double getDisc (double a, double b, double c);//get discriminant
 
@@ -65,6 +75,8 @@ double getDisc (double a, double b, double c);//get discriminant
 *   @param [in] c - the 2nd coefficient of equation
 *
 *   @param [out] answ - pointer to solution struct
+*
+*   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
 void solveEqLin (double b, double c, answEquation* answ);//solve linear
 
@@ -76,6 +88,8 @@ void solveEqLin (double b, double c, answEquation* answ);//solve linear
 *   @param [in] c - the 3rd coefficient of equation
 *
 *   @param [out] answ - pointer to solution struct
+*
+*   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
 void solveEqQuad (double a, double b, double c, answEquation* answ);//solve quadric
-#endif
+#endif   // QuadraticSolver.h
