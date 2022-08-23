@@ -29,7 +29,6 @@ static bool isAnswEqual(answEquation answ1, answEquation answ2){
     }
 }
 
-
 void testEq (void) {
     FILE* testFile = NULL;
     testFile = fopen(filename, "r");
