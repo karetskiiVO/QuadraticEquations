@@ -13,6 +13,8 @@ int main (void) {
 #ifdef debugMode
 
     testEq();
+    testEqQuad();
+    testEqLin();
 
 #else
 

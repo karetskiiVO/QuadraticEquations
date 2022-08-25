@@ -10,14 +10,16 @@
 
 #define defaultColor setColor(WHITE)
 
-const char filename[] = "test.txt";
+const char filenameEq[]     = "testEq.txt";
+const char filenameEqLin[]  = "testEqLin.txt";
+const char filenameEqQuad[] = "testEqQuad.txt";
 
-const char BLACK[] = "\x1b[30m";
-const char RED[] = "\x1b[31m";
-const char GREEN[] = "\x1b[32m";
+const char BLACK[]  = "\x1b[30m";
+const char RED[]    = "\x1b[31m";
+const char GREEN[]  = "\x1b[32m";
 const char YELLOW[] = "\x1b[33m";
-const char BLUE[] = "\x1b[34m";
-const char WHITE[] = "\x1b[37m";
+const char BLUE[]   = "\x1b[34m";
+const char WHITE[]  = "\x1b[37m";
 
 static bool isAnswEqual(const answEquation answ1, const answEquation answ2){
     if (answ1.numofSolutions != answ2.numofSolutions) {
@@ -43,9 +45,10 @@ static bool isAnswEqual(const answEquation answ1, const answEquation answ2){
 }
 
 void testEq (void) {
+    printf("testing %s\n", __func__);
 
     FILE* testFile = NULL;
-    testFile = fopen(filename, "r");
+    testFile = fopen(filenameEq, "r");
     assert(testFile != NULL && "There is no test file");
 
     int testNum = 0;
@@ -100,4 +103,120 @@ void testEq (void) {
 
     printf("\n\nWrong tests: %d, total: %d\n", testWA, testNum);
 }
+
+void testEqQuad (void){
+    printf("testing %s\n", __func__);
+
+    FILE* testFile = NULL;
+    testFile = fopen(filenameEqQuad, "r");
+    assert(testFile != NULL && "There is no test file");
+
+    int testNum = 0;
+    int testWA = 0;
+
+    double a = 0;
+    double b = 0;
+    double c = 0;
+
+    answEquation answ = {0};
+    answEquation answTest = {0};
+
+    while (fscanf(testFile, "%lf %lf", &a, &b, &c) != EOF) {
+        fscanf(testFile, "%d", &answTest.numofSolutions);
+
+        solveEqQuad(a, b, c, &answ);
+
+        for (int i = 0; i < answTest.numofSolutions; i++){
+            fscanf(testFile, "%lf", &answTest.solutions[i]);
+        }
+
+        if (!isAnswEqual(answ, answTest)){
+            setColor(RED);
+
+            printf("Err in test: %d\n", testNum);
+            
+            printf("\tIn answer %d solutions:", answ.numofSolutions);
+            for (int i = 0; i < answ.numofSolutions; i++) {
+                printf("\t%lg", answ.solutions[i]);
+            }
+
+            printf("\n");
+
+            printf("\tIn real %d solutions:", answTest.numofSolutions);
+            for (int i = 0; i < answTest.numofSolutions; i++) {
+                printf("\t%lg", answTest.solutions[i]);
+            }
+            
+            printf("\n");
+            testWA++;
+        } 
+
+        defaultColor;
+
+        testNum++;
+    }
+    fclose(testFile);
+
+    printf("\n\nWrong tests: %d, total: %d\n", testWA, testNum);
+}
+
+void testEqLin (void){
+    printf("testing %s\n", __func__);
+
+    FILE* testFile = NULL;
+    testFile = fopen(filenameEq, "r");
+    assert(testFile != NULL && "There is no test file");
+
+    int testNum = 0;
+    int testWA = 0;
+
+    double a = 0;
+    double b = 0;
+
+    answEquation answ = {0};
+    answEquation answTest = {0};
+
+    while (fscanf(testFile, "%lf %lf", &a, &b) != EOF) {
+        fscanf(testFile, "%d", &answTest.numofSolutions);
+
+        solveEqLin(a, b, &answ);
+
+        for (int i = 0; i < answTest.numofSolutions; i++){
+            fscanf(testFile, "%lf", &answTest.solutions[i]);
+        }
+
+        if (!isAnswEqual(answ, answTest)){
+            setColor(RED);
+
+            printf("Err in test: %d\n", testNum);
+            
+            printf("\tIn answer %d solutions:", answ.numofSolutions);
+            for (int i = 0; i < answ.numofSolutions; i++) {
+                printf("\t%lg", answ.solutions[i]);
+            }
+
+            printf("\n");
+
+            printf("\tIn real %d solutions:", answTest.numofSolutions);
+            for (int i = 0; i < answTest.numofSolutions; i++) {
+                printf("\t%lg", answTest.solutions[i]);
+            }
+            
+            printf("\n");
+            testWA++;
+        } 
+        /*else {
+            setColor(BLUE);
+            printf("Sucsses in test %d\n", testNum);
+        }*/
+
+        defaultColor;
+
+        testNum++;
+    }
+    fclose(testFile);
+
+    printf("\n\nWrong tests: %d, total: %d\n", testWA, testNum);
+}
+
 
