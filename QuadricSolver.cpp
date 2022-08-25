@@ -3,13 +3,102 @@
 #include "QuadricSolver.h"
 
 #include <math.h>
+#include <stdio.h>
+#include <string.h>
 #include <assert.h>
 
 void inputEq (double* const a, double* const b, double* const c) {
     assert(a != NULL && b != NULL && c != NULL && "All pointers mustn't be NULL");
 
     printf("Enter the polynomial in the form ax^2 + bx + c = 0\n");
-    scanf("%lf%lf%lf", a, b, c);
+
+    const int inputBufLen = 10000;
+
+            bool inNum = false;
+       bool isNegative = false;
+         bool inFrPart = false;
+        bool inExpPart = false;
+       bool isFirstExp = false;
+    bool isNegativeExp = false;
+
+    double arrOfCoef[3] = {0};
+
+    int cntOfNum  = -1;
+    int cntFrPart = 0;
+    int cntExp    = 0;
+
+    char inputBuf[inputBufLen];
+    memset(inputBuf, '\0', inputBufLen);
+
+    fgets(inputBuf, inputBufLen - 1, stdin);
+
+    for (int i = 0; !(inputBuf[i] == '\0'); i++) {
+        if(inNum) {      //if input num now
+            if ((inputBuf[i] - '0' <= 10) && (inputBuf[i] - '0' >= 0)) { //if digit
+                if (inExpPart) {
+                    cntExp += inputBuf[i] - '0';
+                    isFirstExp = false;
+                } else if (inFrPart) {
+                    cntFrPart++;
+                    arrOfCoef[cntOfNum] = arrOfCoef[cntOfNum] + (inputBuf[i] - '0') * pow(0.1, cntFrPart);
+                } else {  
+                    inNum = true;
+                    arrOfCoef[cntOfNum] = arrOfCoef[cntOfNum] * 10 + inputBuf[i] - '0';
+                }
+            } else if ((inputBuf[i] == '.' || inputBuf[i] == ',') && !inFrPart) {       //if separator         
+                inFrPart = true;
+            } else if (inputBuf[i] == 'e' && !inExpPart){                               //if exp
+                inExpPart = true;
+                isFirstExp = true;
+            } else if (inputBuf[i] == '-' && isFirstExp && !isNegativeExp) {
+                isNegativeExp = true;
+                isFirstExp    = false;
+            } else {                                                                    //if end of num
+                if (isNegative) {
+                    arrOfCoef[cntOfNum] *= -1;
+                }
+
+                if (isNegativeExp) {
+                    cntExp *= -1;
+                }
+
+                if(inExpPart) {
+                    arrOfCoef[cntOfNum] *= pow(10, cntExp);
+                }
+
+                cntExp    = 0;
+                cntFrPart = 0;
+
+                isNegativeExp = false;
+                inExpPart     = false;
+                inFrPart      = false;
+                inNum         = false;
+                isNegative    = false;
+                isFirstExp    = false;
+            }
+
+        } else {         //if not
+            if ((inputBuf[i] - '0' <= 10) && (inputBuf[i] - '0' >= 0)) {
+                assert(cntOfNum < 3 && "Error in input");
+
+                inNum = true;
+                arrOfCoef[++cntOfNum] = inputBuf[i] - '0';
+            } else if (inputBuf[i] == '-') {
+                isNegative = true;
+            } else {
+                inNum = false;
+                isNegative = false;
+            }
+        }
+    }
+
+    assert(cntOfNum != 3 && "Error in input");
+
+    *a = arrOfCoef[0];
+    *b = arrOfCoef[1];
+    *c = arrOfCoef[2];
+
+    printf("%lg %lg %lg\n", *a, *b, *c);
 }
 
 void outputEq (answEquation* const answ) {
@@ -33,6 +122,8 @@ void outputEq (answEquation* const answ) {
                 printf("\t%lg", answ->solutions[i]);
             }
     }
+    
+    printf("\n");
 }
 
 bool isEqual (const double a, const double b) {

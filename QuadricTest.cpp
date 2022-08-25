@@ -21,7 +21,7 @@ const char YELLOW[] = "\x1b[33m";
 const char BLUE[]   = "\x1b[34m";
 const char WHITE[]  = "\x1b[37m";
 
-static bool isAnswEqual(const answEquation answ1, const answEquation answ2){
+static bool isAnswEqual (const answEquation answ1, const answEquation answ2) {
     if (answ1.numofSolutions != answ2.numofSolutions) {
         return false;
     }
@@ -42,6 +42,7 @@ static bool isAnswEqual(const answEquation answ1, const answEquation answ2){
             out2 = (isEqual(answ1.solutions[0], answ2.solutions[1]) && isEqual(answ1.solutions[1], answ2.solutions[0]));
             return out1 || out2;
     }
+    return false;
 }
 
 void testEq (void) {
