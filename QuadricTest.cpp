@@ -164,7 +164,7 @@ void testEqLin (void){
     printf("testing %s\n", __func__);
 
     FILE* testFile = NULL;
-    testFile = fopen(filenameEq, "r");
+    testFile = fopen(filenameEqLin, "r");
     assert(testFile != NULL && "There is no test file");
 
     int testNum = 0;
@@ -204,11 +204,7 @@ void testEqLin (void){
             
             printf("\n");
             testWA++;
-        } 
-        /*else {
-            setColor(BLUE);
-            printf("Sucsses in test %d\n", testNum);
-        }*/
+        }
 
         defaultColor;
 
