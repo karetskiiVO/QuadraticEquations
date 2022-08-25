@@ -15,16 +15,22 @@ QuadricTest.h - contain headers to QuadricTest.cpp
 # To compile in REALEASE:
 ```bash
 git clone https://github.com/karetskiiVO/QuadraticEquations
+
 cd QuadraticEquations
+
 make
+
 ./calc
 ```
 
 # To compile in DEBUG:
 ```bash
 git clone https://github.com/karetskiiVO/QuadraticEquations
+
 cd QuadraticEquations
+
 make debug
+
 ./calc
 ```
 
@@ -32,8 +38,12 @@ make debug
 
 ```bash
 git clone https://github.com/karetskiiVO/QuadraticEquations
+
 cd QuadraticEquations
+
 doxygen Doxyfile
+
 cd html
+
 annotation.html
 ```
