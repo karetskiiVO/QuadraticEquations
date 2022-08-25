@@ -18,7 +18,7 @@ make
 ./calc
 ```
 
-## To DEBUG a project:
+###### To DEBUG a project:
 ```bash
 git clone https://github.com/karetskiiVO/QuadraticEquations
 
