@@ -1,6 +1,7 @@
 # QuadricSolver
 #### by Karetskii Vladislav, MIPT 2022
 
+
 This is a test project (to study the code style)
 
 Еhis is a program for finding the roots of an equation of the form $ax^2 + bx + c = 0$
