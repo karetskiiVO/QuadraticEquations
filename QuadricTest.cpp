@@ -121,7 +121,7 @@ void testEqQuad (void){
     answEquation answ = {0};
     answEquation answTest = {0};
 
-    while (fscanf(testFile, "%lf %lf", &a, &b, &c) != EOF) {
+    while (fscanf(testFile, "%lf %lf %lf", &a, &b, &c) != EOF) {
         fscanf(testFile, "%d", &answTest.numofSolutions);
 
         solveEqQuad(a, b, c, &answ);
