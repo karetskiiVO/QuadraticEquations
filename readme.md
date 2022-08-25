@@ -1,7 +1,7 @@
 # QuadricSolver
 This is a test project (to study the code)
 
-Еhis is a program for finding the roots of an equation of the form ax^2 + bx + c = 0
+Еhis is a program for finding the roots of an equation of the form $ax^2 + bx + c = 0$
 
 ```
 main.cpp - main file of solution. To compile chose one mode(debug or release) 
