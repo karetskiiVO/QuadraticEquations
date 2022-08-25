@@ -14,11 +14,11 @@ void inputEq (double* const a, double* const b, double* const c) {
 
     const int inputBufLen = 10000;
 
-            bool inNum = false;
-       bool isNegative = false;
-         bool inFrPart = false;
-        bool inExpPart = false;
-       bool isFirstExp = false;
+    bool inNum         = false;
+    bool isNegative    = false;
+    bool inFrPart      = false;
+    bool inExpPart     = false;
+    bool isFirstExp    = false;
     bool isNegativeExp = false;
 
     double arrOfCoef[3] = {0};
