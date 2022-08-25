@@ -3,7 +3,7 @@
 #ifndef QUADRICTYPES_H
 #define QUADRICTYPES_H
 
-const double ALLOWANCE = 1e-9; ///< delta neighborhood size
+const double ALLOWANCE = 1e-15; ///< delta neighborhood size
 
 /// the description of the answ struct
 typedef struct {

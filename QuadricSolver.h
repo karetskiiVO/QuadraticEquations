@@ -18,7 +18,7 @@
 *
 *   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
-void inputEq (double* a, double* b, double* c);
+void inputEq (double* const a, double* const b, double* const c);
 
 /**
 *   @brief this function output results
@@ -27,7 +27,7 @@ void inputEq (double* a, double* b, double* c);
 *
 *   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
-void outputEq (answEquation* answ);
+void outputEq (answEquation* const answ);
 
 /**
 *   @brief this function checks for equality pair of double
@@ -36,11 +36,11 @@ void outputEq (answEquation* answ);
 *   @param [in] b - 2nd double
 *
 *   @return true - the numbers are equal
-*   @returns false - the numbers aren't equal
+*   @return false - the numbers aren't equal
 *
 *   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
-bool isEqual (double a, double b);
+bool isEqual (const double a, const double b);
 
 /**
 *   @brief this function solves the equation
@@ -53,7 +53,7 @@ bool isEqual (double a, double b);
 *
 *   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
-void solveEq (double a, double b, double c, answEquation* answ);//get solutions
+void solveEq (const double a, const double b, const double c, answEquation* const answ);//get solutions
 
 /**
 *   @brief this function get discriminant of the equation
@@ -66,7 +66,7 @@ void solveEq (double a, double b, double c, answEquation* answ);//get solutions
 *
 *   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
-double getDisc (double a, double b, double c);//get discriminant
+double getDisc (const double a, const double b, const double c);//get discriminant
 
 /**
 *   @brief this function solves the linear equation
@@ -78,7 +78,7 @@ double getDisc (double a, double b, double c);//get discriminant
 *
 *   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
-void solveEqLin (double b, double c, answEquation* answ);//solve linear
+void solveEqLin (const double b, const double c, answEquation* const answ);//solve linear
 
 /**
 *   @brief this function solves the quadric equation
@@ -91,5 +91,5 @@ void solveEqLin (double b, double c, answEquation* answ);//solve linear
 *
 *   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
-void solveEqQuad (double a, double b, double c, answEquation* answ);//solve quadric
+void solveEqQuad (const double a, const double b, const double c, answEquation* const answ);//solve quadric
 #endif   // QuadraticSolver.h

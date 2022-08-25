@@ -2,18 +2,31 @@
 
 #include "QuadricTypes.h"
 #include "QuadricSolver.h"
+#include "printfColored.h"
 
 #include <stdio.h>
 #include <stdbool.h>
 #include <assert.h>
 
+#define defaultColor setColor(WHITE)
+
 const char filename[] = "test.txt";
 
-static bool isAnswEqual(answEquation answ1, answEquation answ2){
+const char BLACK[] = "\x1b[30m";
+const char RED[] = "\x1b[31m";
+const char GREEN[] = "\x1b[32m";
+const char YELLOW[] = "\x1b[33m";
+const char BLUE[] = "\x1b[34m";
+const char WHITE[] = "\x1b[37m";
+
+static bool isAnswEqual(const answEquation answ1, const answEquation answ2){
     if (answ1.numofSolutions != answ2.numofSolutions) {
         return false;
     }
     switch (answ1.numofSolutions) {
+        case -1:
+            return true;
+            break;
         case 0:
             return true;
             break;
@@ -30,6 +43,7 @@ static bool isAnswEqual(answEquation answ1, answEquation answ2){
 }
 
 void testEq (void) {
+
     FILE* testFile = NULL;
     testFile = fopen(filename, "r");
     assert(testFile != NULL && "There is no test file");
@@ -54,13 +68,36 @@ void testEq (void) {
         }
 
         if (!isAnswEqual(answ, answTest)){
+            setColor(RED);
+
+            printf("Err in test: %d\n", testNum);
+            
+            printf("\tIn answer %d solutions:", answ.numofSolutions);
+            for (int i = 0; i < answ.numofSolutions; i++) {
+                printf("\t%lg", answ.solutions[i]);
+            }
+
+            printf("\n");
+
+            printf("\tIn real %d solutions:", answTest.numofSolutions);
+            for (int i = 0; i < answTest.numofSolutions; i++) {
+                printf("\t%lg", answTest.solutions[i]);
+            }
+            
+            printf("\n");
             testWA++;
-        }
+        } 
+        /*else {
+            setColor(BLUE);
+            printf("Sucsses in test %d\n", testNum);
+        }*/
+
+        defaultColor;
 
         testNum++;
     }
     fclose(testFile);
 
-    printf("Wrong tests: %d, total: %d\n", testWA, testNum);
+    printf("\n\nWrong tests: %d, total: %d\n", testWA, testNum);
 }
 

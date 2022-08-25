@@ -5,7 +5,7 @@ CC = g++
 CFLAGS  = -g -Wall
  
 #sources of input
-SOURCES = main.cpp  QuadricSolver.cpp QuadricTest.cpp
+SOURCES = main.cpp  QuadricSolver.cpp QuadricTest.cpp printfColored.cpp
 
 #sources of output
 EXECUTABLE = calc
