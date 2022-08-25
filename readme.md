@@ -17,7 +17,7 @@ QuadricTest.cpp - contain function to test program
 QuadricTest.h - contain headers to QuadricTest.cpp
 ```
 
-# To compile in REALEASE:
+## To compile in REALEASE:
 ```bash
 git clone https://github.com/karetskiiVO/QuadraticEquations
 
@@ -28,7 +28,7 @@ make
 ./calc
 ```
 
-# To compile in DEBUG:
+## To compile in DEBUG:
 ```bash
 git clone https://github.com/karetskiiVO/QuadraticEquations
 
@@ -39,7 +39,7 @@ make debug
 ./calc
 ```
 
-# To use documentation:
+## To use documentation:
 
 ```bash
 git clone https://github.com/karetskiiVO/QuadraticEquations
