@@ -1,23 +1,12 @@
 # QuadricSolver
+#### by Karetskii Vladislav, MIPT 2022
+
 This is a test project (to study the code style)
 
 Еhis is a program for finding the roots of an equation of the form $ax^2 + bx + c = 0$
 
-```
-main.cpp - main file of solution. To compile chose one mode(debug or release) 
 
-QuadricSolver.cpp - contain function to input, output and solve equation
-
-QuadricSolver.h - contain headers to QuadricSolver.cpp
-
-QuadricTypes.h - contain addition types
-
-QuadricTest.cpp - contain function to test program
-
-QuadricTest.h - contain headers to QuadricTest.cpp
-```
-
-## To compile in REALEASE:
+## To BUILD a project:
 ```bash
 git clone https://github.com/karetskiiVO/QuadraticEquations
 
@@ -28,7 +17,7 @@ make
 ./calc
 ```
 
-## To compile in DEBUG:
+## To DEBUG a project:
 ```bash
 git clone https://github.com/karetskiiVO/QuadraticEquations
 
