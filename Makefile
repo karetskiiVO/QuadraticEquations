@@ -1,25 +1,29 @@
-TARGET := calc
-PREFIX := /release
+.PHONY: all clean release
 
-.PHONY: all clean default
+SOURCES := main.cpp  QuadricSolver.cpp QuadricTest.cpp printfColored.cpp
+OBJ = $(SOURCES:.cpp=.o)
 
-all: default
+all: release
 
 #the compiler
 CC := g++
+SRC = main.cpp 
 
 #flags:
 CFLAGS  := -g -Wall#-Md --coverage
  
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $<
+	$(CC) -c $(CFLAGS) $<  
 #
 
-default:
-	$(CC) $(CFLAGS) -MD -o $^ -lm 
+release: $(OBJ)
+	$(CC) $(CFLAGS) -MD $^ -o $@ -lm 
 #
 
-debug:
+check:
+	@echo $(OBJ)
+
+debug: $(OBJ)
 	$(CC) $(CFLAGS) -D debugMode -MD -o $^ -lm
 #cleane  .PHONY buildDirectory -include *.d
 #:= -immeditly = -in time
@@ -29,3 +33,5 @@ debug:
 
 clean: 
 	rm -rf *.o *.d
+
+#########################

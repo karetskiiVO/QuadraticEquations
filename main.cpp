@@ -3,12 +3,13 @@
 /// \file
 
 #include <stdio.h>
-#include "QuadricTest.h"
-
-#include "QuadricSolver.h"
+#include <stdlib.h>
 #include <math.h>
 
-int main (void) {
+#include "QuadricTest.h"
+#include "QuadricSolver.h"
+
+int main (int argc, char* argv[]) {
     
 #ifdef debugMode
 
