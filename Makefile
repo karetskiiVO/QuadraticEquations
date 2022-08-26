@@ -2,7 +2,7 @@
 CC := g++
  
 #flags:
-CFLAGS  := -g -Wall
+CFLAGS  := -g -Wall#-Md --coverage
  
 #%.o: %.cpp
 
@@ -16,3 +16,5 @@ all:
 	$(CC) $(SOURCES) $(CFLAGS) -MD -o $(EXECUTABLE) -lm
 debug:
 	$(CC) $(SOURCES) $(CFLAGS) -D debugMode -MD -o $(EXECUTABLE) -lm
+#cleane  .PHONY buildDirectory -include *.d
+#:= -immeditly = -in time

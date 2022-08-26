@@ -10,9 +10,10 @@
 void inputEq (double* const a, double* const b, double* const c) {
     assert(a != NULL && b != NULL && c != NULL && "All pointers mustn't be NULL");
 
+    char buf[100];
     printf("Enter the polynomial in the form ax^2 + bx + c = 0\n");
 
-    const int inputBufLen = 10000;
+    /*const int inputBufLen = 10000;
 
     bool inNum         = false;
     bool isNegative    = false;
@@ -96,9 +97,12 @@ void inputEq (double* const a, double* const b, double* const c) {
 
     *a = arrOfCoef[0];
     *b = arrOfCoef[1];
-    *c = arrOfCoef[2];
+    *c = arrOfCoef[2];*/
 
-    printf("%lg %lg %lg\n", *a, *b, *c);
+    while (!(scanf("%lf%[^0-9.]%lf%[^0-9.]%lf", a, buf, b, buf, c) == 5)) {
+        while (getchar() != '\n' && getchar() != '\0') {}
+        printf("Err in input\n");
+    }
 }
 
 void outputEq (answEquation* const answ) {
