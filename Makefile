@@ -1,9 +1,11 @@
 #the compiler
-CC = g++
+CC := g++
  
 #flags:
-CFLAGS  = -g -Wall
+CFLAGS  := -g -Wall
  
+#%.o: %.cpp
+
 #sources of input
 SOURCES = main.cpp  QuadricSolver.cpp QuadricTest.cpp printfColored.cpp
 
