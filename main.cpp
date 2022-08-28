@@ -25,9 +25,9 @@ int main (int argc, char* argv[]) {
 
 
     if (isDebug) {
-        testEq(!isUnColored);
-        testEqQuad(!isUnColored);
-        testEqLin(!isUnColored);
+        testEq(!isUnColored, isLog);
+        testEqQuad(!isUnColored, isLog);
+        testEqLin(!isUnColored, isLog);
 
         return 0;
     }
@@ -39,8 +39,8 @@ int main (int argc, char* argv[]) {
     answEquation answ = {0};
 
     inputEq(&a, &b, &c);
-    solveEq(a, b, c, &answ);
-    outputEq(&answ);
+    solveEq(a, b, c, &answ, isLog);
+    outputEq(&answ, isLog);
 
     return 0;
 }

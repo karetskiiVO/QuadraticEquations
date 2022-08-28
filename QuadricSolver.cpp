@@ -1,11 +1,15 @@
 /// \file
 
 #include "QuadricSolver.h"
+#include "arg.h"
 
 #include <math.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
+
+const char* logFile = "log.json";
 
 void inputEq (double* const a, double* const b, double* const c) {
     assert(a != NULL && b != NULL && c != NULL && "All pointers mustn't be NULL");
@@ -105,7 +109,7 @@ void inputEq (double* const a, double* const b, double* const c) {
     }
 }
 
-void outputEq (answEquation* const answ) {
+void outputEq (answEquation* const answ, bool isLog) {
     assert(answ != NULL && "All pointers mustn't be NULL");
 
     int answer = answ->numofSolutions;
@@ -127,6 +131,8 @@ void outputEq (answEquation* const answ) {
             }
     }
     
+    printLogAnsw(isLog);
+
     printf("\n");
 }
 
@@ -142,20 +148,24 @@ double getDisc (const double a, const double b, const double c) {
     return b * b - 4 * a * c;
 }
 
-void solveEq (const double a, const double b, const double c, answEquation* const answ) {
+void solveEq (const double a, const double b, const double c, answEquation* const answ, bool isLog) {
     assert(isfinite(a)  && isfinite(b) && isfinite(c) && "All coficient mustn't be NaN");
 
     assert(answ != NULL && "All pointers mustn't be NULL");
 
     if (isEqual(a, 0)) {
-        solveEqLin(b, c, answ);
+        solveEqLin(b, c, answ, isLog);
+
+        printLogAnsw(isLog);
         return;
     }
 
-    solveEqQuad(a, b, c, answ);
+    solveEqQuad(a, b, c, answ, isLog);
+
+    printLogAnsw(isLog);
 }
 
-void solveEqLin (const double b, const double c, answEquation* const answ) {
+void solveEqLin (const double b, const double c, answEquation* const answ, bool isLog) {
     assert(isfinite(b) && isfinite(c) && "All coficient mustn't be NaN");
 
     assert(answ != NULL && "All pointers mustn't be NULL");
@@ -172,9 +182,11 @@ void solveEqLin (const double b, const double c, answEquation* const answ) {
 
     answ->solutions[0] = - c / b;
     answ->numofSolutions = ONE_SOLUTION;
+
+    printLogAnsw(isLog);
 }
 
-void solveEqQuad (const double a, const double b, const double c, answEquation* const answ) {
+void solveEqQuad (const double a, const double b, const double c, answEquation* const answ, bool isLog) {
     assert(isfinite(a) && isfinite(b) && isfinite(c) && "All coficient mustn't be NaN");
 
     assert(answ != NULL && "All pointers mustn't be NULL");
@@ -200,4 +212,6 @@ void solveEqQuad (const double a, const double b, const double c, answEquation* 
     answ->solutions[0] = -(b + Disc) / twoa;
     answ->solutions[1] = -(b - Disc) / twoa;
     answ->numofSolutions = TWO_SOLUTIONS;
+
+    printLogAnsw(isLog);
 }

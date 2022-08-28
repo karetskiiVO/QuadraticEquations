@@ -27,7 +27,7 @@ void inputEq (double* const a, double* const b, double* const c);
 *
 *   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
-void outputEq (answEquation* const answ);
+void outputEq (answEquation* const answ, bool isLog);
 
 /**
 *   @brief this function checks for equality pair of double
@@ -53,7 +53,7 @@ bool isEqual (const double a, const double b);
 *
 *   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
-void solveEq (const double a, const double b, const double c, answEquation* const answ);//get solutions
+void solveEq (const double a, const double b, const double c, answEquation* const answ, bool isLog);//get solutions
 
 /**
 *   @brief this function get discriminant of the equation
@@ -78,7 +78,7 @@ double getDisc (const double a, const double b, const double c);//get discrimina
 *
 *   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
-void solveEqLin (const double b, const double c, answEquation* const answ);//solve linear
+void solveEqLin (const double b, const double c, answEquation* const answ, bool isLog);//solve linear
 
 /**
 *   @brief this function solves the quadric equation
@@ -91,5 +91,5 @@ void solveEqLin (const double b, const double c, answEquation* const answ);//sol
 *
 *   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
-void solveEqQuad (const double a, const double b, const double c, answEquation* const answ);//solve quadric
+void solveEqQuad (const double a, const double b, const double c, answEquation* const answ, bool isLog);//solve quadric
 #endif   // QuadraticSolver.h

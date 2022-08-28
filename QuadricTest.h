@@ -1,5 +1,5 @@
-void testEq (bool iscol);
+void testEq (bool iscol, bool isLog);
 
-void testEqQuad (bool iscol);
+void testEqQuad (bool iscol, bool isLog);
 
-void testEqLin (bool iscol);
+void testEqLin (bool iscol, bool isLog);

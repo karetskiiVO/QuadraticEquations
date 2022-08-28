@@ -1,0 +1,18 @@
+void solveEq(double, double, double, answEquation*, bool)  1 sol:	-1
+void solveEq(double, double, double, answEquation*, bool)  0 sol:
+void solveEqQuad(double, double, double, answEquation*, bool)  2 sol:	1	4
+void solveEq(double, double, double, answEquation*, bool)  2 sol:	1	4
+void solveEq(double, double, double, answEquation*, bool)  -1 sol:
+void solveEq(double, double, double, answEquation*, bool)  0 sol:
+void solveEqLin(double, double, answEquation*, bool)  1 sol:	-1
+void solveEq(double, double, double, answEquation*, bool)  1 sol:	-1
+void solveEq(double, double, double, answEquation*, bool)  0 sol:
+void solveEqQuad(double, double, double, answEquation*, bool)  2 sol:	-1	1
+void solveEq(double, double, double, answEquation*, bool)  2 sol:	-1	1
+void solveEqQuad(double, double, double, answEquation*, bool)  2 sol:	-1	-0
+void solveEq(double, double, double, answEquation*, bool)  2 sol:	-1	-0
+void solveEq(double, double, double, answEquation*, bool)  0 sol:
+void solveEq(double, double, double, answEquation*, bool)  1 sol:	-1
+void solveEqLin(double, double, answEquation*, bool)  1 sol:	-2
+void solveEqLin(double, double, answEquation*, bool)  1 sol:	-2
+void solveEqLin(double, double, answEquation*, bool)  1 sol:	-0.5

@@ -45,7 +45,7 @@ static bool isAnswEqual (const answEquation answ1, const answEquation answ2) {
     return false;
 }
 
-void testEq (bool iscol) {
+void testEq (bool iscol, bool isLog) {
     printf("testing %s\n", __func__);
 
     FILE* testFile = NULL;
@@ -65,7 +65,7 @@ void testEq (bool iscol) {
     while (fscanf(testFile, "%lf %lf %lf", &a, &b, &c) != EOF) {
         fscanf(testFile, "%d", &answTest.numofSolutions);
 
-        solveEq(a, b, c, &answ);
+        solveEq(a, b, c, &answ, isLog);
 
         for (int i = 0; i < answTest.numofSolutions; i++){
             fscanf(testFile, "%lf", &answTest.solutions[i]);
@@ -101,7 +101,7 @@ void testEq (bool iscol) {
     printf("\n\nWrong tests: %d, total: %d\n", testWA, testNum);
 }
 
-void testEqQuad (bool iscol){
+void testEqQuad (bool iscol, bool isLog) {
     printf("testing %s\n", __func__);
 
     FILE* testFile = NULL;
@@ -121,7 +121,7 @@ void testEqQuad (bool iscol){
     while (fscanf(testFile, "%lf %lf %lf", &a, &b, &c) != EOF) {
         fscanf(testFile, "%d", &answTest.numofSolutions);
 
-        solveEqQuad(a, b, c, &answ);
+        solveEqQuad(a, b, c, &answ, isLog);
 
         for (int i = 0; i < answTest.numofSolutions; i++){
             fscanf(testFile, "%lf", &answTest.solutions[i]);
@@ -158,7 +158,7 @@ void testEqQuad (bool iscol){
     printf("\n\nWrong tests: %d, total: %d\n", testWA, testNum);
 }
 
-void testEqLin (bool iscol){
+void testEqLin (bool iscol, bool isLog) {
     printf("testing %s\n", __func__);
 
     FILE* testFile = NULL;
@@ -177,7 +177,7 @@ void testEqLin (bool iscol){
     while (fscanf(testFile, "%lf %lf", &a, &b) != EOF) {
         fscanf(testFile, "%d", &answTest.numofSolutions);
 
-        solveEqLin(a, b, &answ);
+        solveEqLin(a, b, &answ, isLog);
 
         for (int i = 0; i < answTest.numofSolutions; i++){
             fscanf(testFile, "%lf", &answTest.solutions[i]);
