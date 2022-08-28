@@ -24,6 +24,7 @@ void inputEq (double* const a, double* const b, double* const c);
 *   @brief this function output results
 *
 *   @param [in] answ - pointer to the struct with solution
+*   @param [in] isLog - turn on log
 *
 *   @note equation has form ax^2 + bx + c = 0, where a - 1st coefficient of equation, b - 2nd coefficient of equation, c - 3rd coefficient of equation
 */
@@ -73,6 +74,7 @@ double getDisc (const double a, const double b, const double c);//get discrimina
 *
 *   @param [in] b - the 1st coefficient of equation
 *   @param [in] c - the 2nd coefficient of equation
+*   @param [in] isLog - turn on log
 *
 *   @param [out] answ - pointer to solution struct
 *
@@ -86,6 +88,7 @@ void solveEqLin (const double b, const double c, answEquation* const answ, bool 
 *   @param [in] a - the 1st coefficient of equation
 *   @param [in] b - the 2nd coefficient of equation
 *   @param [in] c - the 3rd coefficient of equation
+*   @param [in] isLog - turn on log
 *
 *   @param [out] answ - pointer to solution struct
 *
