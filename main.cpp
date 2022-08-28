@@ -8,16 +8,29 @@
 
 #include "QuadricTest.h"
 #include "QuadricSolver.h"
+#include "arg.h"
+
+bool isUnColored = false;
+bool isLog       = false;
+bool isHelp      = false;
+bool isDebug     = false;
 
 int main (int argc, char* argv[]) {
-    
-#ifdef debugMode
 
-    testEq();
-    testEqQuad();
-    testEqLin();
+    check_args(argc, argv);
+    if (isHelp) {
+        Help();
+        return 0;
+    }
 
-#else
+
+    if (isDebug) {
+        testEq(!isUnColored);
+        testEqQuad(!isUnColored);
+        testEqLin(!isUnColored);
+
+        return 0;
+    }
 
     double a = NAN;
     double b = NAN;
@@ -28,8 +41,6 @@ int main (int argc, char* argv[]) {
     inputEq(&a, &b, &c);
     solveEq(a, b, c, &answ);
     outputEq(&answ);
-
-#endif// DebugMode
 
     return 0;
 }

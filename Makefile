@@ -1,37 +1,14 @@
-.PHONY: all clean release
-
-SOURCES := main.cpp  QuadricSolver.cpp QuadricTest.cpp printfColored.cpp
-OBJ = $(SOURCES:.cpp=.o)
-
-all: release
-
 #the compiler
-CC := g++
-SRC = main.cpp 
-
-#flags:
-CFLAGS  := -g -Wall#-Md --coverage
+CC = g++
  
-%.o: %.cpp
-	$(CC) -c $(CFLAGS) $<  
-#
+#flags:
+CFLAGS  = -g -Wall
+ 
+#sources of input
+SOURCES = main.cpp  QuadricSolver.cpp  QuadricTest.cpp  printfColored.cpp  arg.cpp
 
-release: $(OBJ)
-	$(CC) $(CFLAGS) -MD $^ -o $@ -lm 
-#
+#sources of output
+EXECUTABLE = calc
 
-check:
-	@echo $(OBJ)
-
-debug: $(OBJ)
-	$(CC) $(CFLAGS) -D debugMode -MD -o $^ -lm
-#cleane  .PHONY buildDirectory -include *.d
-#:= -immeditly = -in time
-
-#check headers
--include *.d
-
-clean: 
-	rm -rf *.o *.d
-
-#########################
+all:
+	$(CC) $(SOURCES) $(CFLAGS) -MD -o $(EXECUTABLE) -lm

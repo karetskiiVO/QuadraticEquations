@@ -45,7 +45,7 @@ static bool isAnswEqual (const answEquation answ1, const answEquation answ2) {
     return false;
 }
 
-void testEq (void) {
+void testEq (bool iscol) {
     printf("testing %s\n", __func__);
 
     FILE* testFile = NULL;
@@ -72,7 +72,8 @@ void testEq (void) {
         }
 
         if (!isAnswEqual(answ, answTest)){
-            setColor(RED);
+            if (iscol)
+                setColor(RED);
 
             printf("Err in test: %d\n", testNum);
             
@@ -91,11 +92,6 @@ void testEq (void) {
             printf("\n");
             testWA++;
         } 
-        /*else {
-            setColor(BLUE);
-            printf("Sucsses in test %d\n", testNum);
-        }*/
-
         defaultColor;
 
         testNum++;
@@ -105,7 +101,7 @@ void testEq (void) {
     printf("\n\nWrong tests: %d, total: %d\n", testWA, testNum);
 }
 
-void testEqQuad (void){
+void testEqQuad (bool iscol){
     printf("testing %s\n", __func__);
 
     FILE* testFile = NULL;
@@ -132,8 +128,9 @@ void testEqQuad (void){
         }
 
         if (!isAnswEqual(answ, answTest)){
-            setColor(RED);
-
+            if (iscol)
+                setColor(RED);
+            
             printf("Err in test: %d\n", testNum);
             
             printf("\tIn answer %d solutions:", answ.numofSolutions);
@@ -161,7 +158,7 @@ void testEqQuad (void){
     printf("\n\nWrong tests: %d, total: %d\n", testWA, testNum);
 }
 
-void testEqLin (void){
+void testEqLin (bool iscol){
     printf("testing %s\n", __func__);
 
     FILE* testFile = NULL;
@@ -187,7 +184,8 @@ void testEqLin (void){
         }
 
         if (!isAnswEqual(answ, answTest)){
-            setColor(RED);
+            if (iscol)
+                setColor(RED);
 
             printf("Err in test: %d\n", testNum);
             
