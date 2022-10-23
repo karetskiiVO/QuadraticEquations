@@ -16,7 +16,6 @@ bool isHelp      = false;
 bool isDebug     = false;
 
 int main (int argc, char* argv[]) {
-
     check_args(argc, argv);
     if (isHelp) {
         Help();

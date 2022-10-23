@@ -35,7 +35,7 @@ void check_args (int argc, char* argv[]) {
 }
 
 void Help () {
-    printf("te progrm support comads:\n");
+    printf("the progrmm support comads:\n");
     for (int i = 0; i < com_len; i++) {
         printf("\t%s", com[i].f_name);
     }

@@ -23,7 +23,7 @@ extern bool isLog;
 extern bool isHelp;
 extern bool isDebug;
 
-void check_args(int argc, char* argv[]);
+void check_args (int argc, char* argv[]);
 
 void Help ();
-#endif
+#endif// arg.h
